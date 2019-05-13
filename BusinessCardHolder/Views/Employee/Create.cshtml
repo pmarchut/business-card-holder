@@ -1,0 +1,60 @@
+﻿@model Employee
+
+@{
+    ViewBag.Title = "Create Employee";
+}
+
+<form asp-controller="Employee" asp-action="Create" method="post" class="mt-3">
+    <div class="form-group row">
+        <label asp-for="FirstName" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="FirstName" class="form-control" placeholder="First Name" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="LastName" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="LastName" class="form-control" placeholder="Last Name" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="JobTitle" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="JobTitle" class="form-control" placeholder="Job Title" />
+            <span asp-validation-for="JobTitle" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Telephone" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="Telephone" class="form-control" placeholder="Telephone" />
+            <span asp-validation-for="Telephone" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="MobileTelephone" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="MobileTelephone" class="form-control" placeholder="Mobile Telephone" />
+            <span asp-validation-for="MobileTelephone" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Email" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="Email" class="form-control" placeholder="Email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="FirmId" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <select asp-for="FirmId" class="form-control" asp-items="ViewBag.FirmId"></select>
+        </div>
+    </div>
+    <div>
+        <a asp-controller="Firm" asp-action="Index" class="btn btn-primary m-1">Cancel</a>
+        <button type="submit" class="btn btn-primary m-1">Create</button>
+    </div>
+</form>

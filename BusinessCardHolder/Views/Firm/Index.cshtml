@@ -1,0 +1,66 @@
+﻿@model FirmIndexViewModel
+@{ 
+    ViewBag.Title = "Firms";
+}
+
+<br />
+<h1>Firms</h1>
+
+<div>
+    <a asp-controller="Firm" asp-action="Create" class="btn btn-primary m-1">Create</a>
+</div>
+
+<form asp-controller="Firm" asp-action="Index" method="get" class="mt-3">
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label asp-for="Name" class="col-form-label m-1"></label>
+            <input type="text" asp-for="Name" class="m-1" />
+            <label asp-for="NIP" class="col-form-label m-1"></label>
+            <input type="text" asp-for="NIP" class="m-1" />
+            <label asp-for="Address" class="col-form-label m-1"></label>
+            <input type="text" asp-for="Address" class="m-1" />
+            <label asp-for="City" class="col-form-label m-1"></label>
+            <input type="text" asp-for="City" class="m-1" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label asp-for="PostalCode" class="col-form-label m-1"></label>
+            <input type="text" asp-for="PostalCode" class="m-1" />
+            <label asp-for="Telephone" class="col-form-label m-1"></label>
+            <input type="text" asp-for="Telephone" class="m-1" />
+            <label asp-for="Email" class="col-form-label m-1"></label>
+            <input type="text" asp-for="Email" class="m-1" />
+            <button type="submit" class="btn btn-info m-1">Filter</button>
+        </div>
+    </div>        
+</form>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th><i class="fa fa-pencil-square-o" aria-hidden="true"></i></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Firm firm in Model.Firms)
+                {
+                    <tr>
+                        <td>
+                            @firm.Name
+                        </td>
+                        <td class="text-center">
+                            <a asp-controller="Firm" asp-action="Details" asp-route-id="@firm.Id" class="btn btn-info m-1">Details</a>                        
+                            <a asp-controller="Firm" asp-action="Edit" asp-route-id="@firm.Id" class="btn btn-primary m-1">Edit</a>                       
+                            <a asp-controller="Firm" asp-action="Delete" asp-route-id="@firm.Id" class="btn btn-danger m-1">Delete</a>
+                            <a asp-controller="Firm" asp-action="Employees" asp-route-id="@firm.Id" class="btn btn-primary m-1">Employees</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

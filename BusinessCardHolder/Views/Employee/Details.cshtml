@@ -1,0 +1,30 @@
+﻿@model Employee
+@{
+    ViewBag.Title = Model.FirstName + ' ' + Model.LastName + "'s Details";
+}
+
+<br />
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <h3>@ViewBag.Title</h3>
+
+        <h4>
+            Employee Id: @Model.Id
+        </h4>
+        <h4>
+            Job Title: @Model.JobTitle
+        </h4>
+        <h4>
+            Telephone: @Model.Telephone
+        </h4>
+        <h4>
+            Mobile Telephone: @Model.MobileTelephone
+        </h4>
+        <h4>
+            Email: @Model.Email
+        </h4>
+        <a asp-controller="Firm" asp-action="Employees" asp-route-id="@Model.FirmId" class="btn btn-primary m-1">Back</a>
+        <a asp-controller="Employee" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary m-1">Edit</a>
+        <a asp-controller="Employee" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger m-1">Delete</a>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+﻿@model FirmEmployeesViewModel
+
+<br />
+<h1>@Model.PageTitle</h1>
+
+<div>
+    <a asp-controller="Firm" asp-action="Index" class="btn btn-primary m-1">Back</a>
+    <a asp-controller="Employee" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-primary m-1">Create</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Job Title</th>
+                    <th><i class="fa fa-pencil-square-o" aria-hidden="true"></i></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Employee employee in Model.Employees)
+                {
+                <tr>
+                    <td>
+                        @employee.FirstName
+                    </td>
+                    <td>
+                        @employee.LastName
+                    </td>
+                    <td>
+                        @employee.JobTitle
+                    </td>
+                    <td class="text-center">
+                        <a asp-controller="Employee" asp-action="Details" asp-route-id="@employee.Id" class="btn btn-info m-1">Details</a>
+                        <a asp-controller="Employee" asp-action="Edit" asp-route-id="@employee.Id" class="btn btn-primary m-1">Edit</a>
+                        <a asp-controller="Employee" asp-action="Delete" asp-route-id="@employee.Id" class="btn btn-danger m-1">Delete</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
